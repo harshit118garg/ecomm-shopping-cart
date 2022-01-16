@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { CartContext } from "../App";
 
 const TableRow = (props) => {
-  const { id, image, description, title, rating, price } = props.data;
+  const { id, image, description, title, rating, price, quantity } = props.data;
 
-  const { removeItem } = useContext(CartContext);
+  const { removeItem, increment, decrement } = useContext(CartContext);
   return (
     <>
       <tr className="d-flex align-items-center justify-content-between">
@@ -25,11 +25,16 @@ const TableRow = (props) => {
         <td>
           <div className="counter">
             <span>
-              <i className="fa fa-plus"></i>
+              <i className="fa fa-plus" onClick={() => increment(id)}></i>
             </span>
-            <input type="number" placeholder="2" className="inputCount" />
+            <input
+              type="number"
+              value={quantity}
+              readOnly
+              className="inputCount"
+            />
             <span>
-              <i className="fa fa-minus"></i>
+              <i className="fa fa-minus" onClick={() => decrement(id)}></i>
             </span>
           </div>
         </td>

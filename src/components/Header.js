@@ -13,7 +13,7 @@ function Header() {
             <span>
               <i className="fas fa-cart-plus"></i>
             </span>
-            <span> {totalItems}</span> items in your cart
+            <span> {totalItems} </span> items in your cart
           </div>
           <div className="right">
             <h2 className="text-dark display-5">
